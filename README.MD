@@ -15,6 +15,10 @@
 
 > `npm build` 以打包
 
-> `npm eject` 以导出 `react-scripts` 集成的自动化依赖如(webpack、bable、eslint、etc)    
+> `npm eject` 以导出 `react-scripts` 集成的自动化依赖如(webpack、bable、eslint、etc)
+   
 如果你不打算使用 `react-scripts` 集成的依赖，    
 想要自定义你的项目，可以使用 `npm eject` 以导出本项目的自动化依赖
+----------
+### 注意： 因 `react-scripts` 是npm包，所以 `npm eject` 必须在安装完依赖后执行
+----------
