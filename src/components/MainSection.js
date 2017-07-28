@@ -18,6 +18,14 @@ class MaiinSection extends Component {
 
     state = { filter: SHOW_ALL }
 
+    handleAllTodo () {
+       this.props.actions.allTodo()
+    }
+
+    handleInvertComplete () {
+        this.props.actions.invertComplete()
+    }
+
     handleClearCompleted () {
         this.props.actions.clearCompleted()
     }
@@ -52,6 +60,8 @@ class MaiinSection extends Component {
                     filter={filter}
                     onClearCompleted={this.handleClearCompleted.bind(this)}
                     onShow={this.handleShow.bind(this)}
+                    onAllTodo={this.handleAllTodo.bind(this)}
+                    onInvert={this.handleInvertComplete.bind(this)}
                 />
             )
         }
@@ -60,7 +70,7 @@ class MaiinSection extends Component {
     render () {
         const { todos, actions } = this.props
         const { filter } = this.state
-
+        console.log(todos)
         const filteredTodos = todos.filter(TODO_FILTERS[filter])
         const completedCount = todos.reduce((count, todo) => 
             todo.completed ? count + 1 : count,

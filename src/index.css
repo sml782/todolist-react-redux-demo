@@ -5,3 +5,17 @@
     font-size: 1rem;
     top:-130px
 }
+.completed-all{
+    margin-left: 20px;
+    float:left;
+    position: relative;
+    text-decoration: none;
+    cursor: pointer;
+}
+.invert-completed{
+    margin-left: 20px;
+    float:left;
+    position: relative;
+    text-decoration: none;
+    cursor: pointer;
+}

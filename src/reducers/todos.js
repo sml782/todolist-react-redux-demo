@@ -1,10 +1,10 @@
-import { ADD_TODO, DELETE_TODO, EDIT_TODO, COMPLETE_TODO, COMPLETE_ALL, CLEAR_COMPLETED } from '../constants/ActionTypes'
+import { ADD_TODO, DELETE_TODO, EDIT_TODO, COMPLETE_TODO, ALL_TODO, INVERT_COMPLETE, COMPLETE_ALL, CLEAR_COMPLETED } from '../constants/ActionTypes'
 
 const initialState = [
-    {
-        text: '这是个例子，默认项',
-        completed: false,
+    {   
         id: 0,
+        completed: false,
+        text: '这是个例子，默认项',
     }
 ]
 
@@ -35,6 +35,20 @@ const todos = (state = initialState, action) => {
                 todo.id === action.id ?
                     {...todo, completed: !todo.completed} :
                     todo
+            )
+
+        case ALL_TODO:
+            return state.map(todo => 
+                !todo.completed ? 
+                {...todo, completed: !todo.completed} :
+                todo
+            )
+
+        case INVERT_COMPLETE:
+            return state.map(todo=>
+                !todo.completed ?
+                {...todo, completed: !todo.completed} :
+                {...todo, completed: !todo.completed}
             )
 
         case COMPLETE_ALL:

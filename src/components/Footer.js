@@ -16,6 +16,8 @@ class Footer extends Component {
         filter: PropTypes.string.isRequired,
         onClearCompleted: PropTypes.func.isRequired,
         onShow: PropTypes.func.isRequired,
+        onAllTodo: PropTypes.func.isRequired,
+        onInvert: PropTypes.func.isRequired,
     }
 
     renderTodoCount () {
@@ -42,6 +44,22 @@ class Footer extends Component {
         )
     }
 
+    renderAllTodoButton () {
+        const { activeCount, onAllTodo } = this.props;
+        if(activeCount > 0){
+            return (
+                <button className="completed-all" onClick={onAllTodo} >完成所有</button>
+            )
+        }
+    }
+
+    renderInvertComplete () {
+        const { onInvert } = this.props;
+        return (
+            <button className="invert-completed" onClick={onInvert} >反选</button>
+        )
+    }
+
     renderClearButton () {
         const { completedCount, onClearCompleted } = this.props;
         if(completedCount > 0){
@@ -58,6 +76,8 @@ class Footer extends Component {
                 <ul className="filters">
                     {[ SHOW_ALL, SHOW_ACTIVE, SHOW_COMPLETED ].map(filter => <li key={filter}>{this.renderFilterLink(filter)}</li>)}
                 </ul>
+                {this.renderInvertComplete()}
+                {this.renderAllTodoButton()}
                 {this.renderClearButton()}
             </footer>
         )

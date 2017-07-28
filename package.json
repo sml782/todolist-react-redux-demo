@@ -5,7 +5,11 @@
   "devDependencies": {
     "enzyme": "^2.8.2",
     "react-addons-test-utils": "^15.5.1",
-    "react-scripts": "^1.0.2"
+    "react-scripts": "^1.0.2",
+    "redux-actions": "^2.2.1",
+    "redux-logger": "^3.0.6",
+    "redux-promise": "^0.5.3",
+    "redux-thunk": "^2.2.0"
   },
   "dependencies": {
     "classnames": "^2.2.5",
